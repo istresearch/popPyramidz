@@ -8,6 +8,7 @@ library(RColorBrewer)
 #' @param plot.title (optional) title of plot
 #' @keywords census population dataframe age gender
 #' @export
+#' @import ggplot2 RColorBrewer
 #' @examples
 #' plot_pyramid(iraq.frame, 'Iraq Population Pyramid')
 

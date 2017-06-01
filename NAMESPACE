@@ -2,3 +2,9 @@
 
 export(get_data)
 export(plot_pyramid)
+import(RColorBrewer)
+import(XML)
+import(ggplot2)
+import(httr)
+import(plyr)
+import(reshape2)

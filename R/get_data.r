@@ -10,6 +10,7 @@ library(httr)
 #' @param year Enter 4-digit year (e.g. 2012)
 #' @keywords census population dataframe age gender
 #' @export
+#' @import XML reshape2 plyr httr
 #' @examples
 #' get_data('IZ', 2012)
 
