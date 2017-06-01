@@ -33,7 +33,7 @@ plot_pyramid <- function(country.frame,plot.title='Population Pyramid') {
       geom_bar(subset = .(Gender == "Male"), stat = "identity") + 
       geom_bar(subset = .(Gender == "Female"), stat = "identity") + 
       coord_flip() + 
-      scale_size_area() +
+      scale_x_discrete(drop=FALSE) +
       scale_fill_brewer(palette = "Set1") + 
       theme_bw() +
       ggtitle(plot.title)
