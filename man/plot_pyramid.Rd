@@ -4,7 +4,7 @@
 \alias{plot_pyramid}
 \title{A plotting Function for Population Pyramids}
 \usage{
-plot_pyramid(country.frame, plot.title = "Population Pyramid")
+plot_pyramid(country.frame, plot.title = "Population Pyramid", plotly = F)
 }
 \arguments{
 \item{country.frame}{Enter dataframe generated from get_data()}
