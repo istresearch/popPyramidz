@@ -29,12 +29,20 @@ plot_pyramid <- function(country.frame,plot.title='Population Pyramid') {
                                    '60-64','65-69','70-74','75-79','80-84','85-89',
                                    '90-94','95-99','100+')))
     
+    plot_breaks <- seq(
+      -as.integer(max(abs(country.frame$Population))/5)*5,
+      as.integer(max(abs(country.frame$Population))/5)*5,by=5)
+    
     p <- ggplot(country.frame, aes(x = Age, y = Population, fill = Gender)) + 
       geom_bar(subset = .(Gender == "Male"), stat = "identity") + 
       geom_bar(subset = .(Gender == "Female"), stat = "identity") + 
       coord_flip() + 
       scale_x_discrete(drop=FALSE) +
       scale_fill_brewer(palette = "Set1") + 
+      scale_y_continuous(name='Percent', breaks=plot_breaks, 
+                         labels=abs(plot_breaks), 
+        limits=c(min(country.frame$Population) - 2,
+                 max(country.frame$Population) + 2)) +
       theme_bw() +
       ggtitle(plot.title)
     
