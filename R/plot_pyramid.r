@@ -1,5 +1,6 @@
 library(ggplot2)
 library(RColorBrewer)
+library(plotly)
 
 #' A plotting Function for Population Pyramids
 #'
@@ -8,11 +9,11 @@ library(RColorBrewer)
 #' @param plot.title (optional) title of plot
 #' @keywords census population dataframe age gender
 #' @export
-#' @import ggplot2 RColorBrewer
+#' @import ggplot2 RColorBrewer plotly
 #' @examples
 #' plot_pyramid(iraq.frame, 'Iraq Population Pyramid')
 
-plot_pyramid <- function(country.frame,plot.title='Population Pyramid') {
+plot_pyramid <- function(country.frame,plot.title='Population Pyramid',plotly=F) {
   
   if (!is.element('Population',colnames(country.frame)) |
       !is.element('Age',colnames(country.frame)) | 
@@ -46,7 +47,12 @@ plot_pyramid <- function(country.frame,plot.title='Population Pyramid') {
       theme_bw() +
       ggtitle(plot.title)
     
-    plot(p)
+    if (plotly) {
+      return(ggplotly(p))
+    }
+    else {
+      return(p)
+    }
     
   }
   
