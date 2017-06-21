@@ -30,6 +30,13 @@ plot_pyramid <- function(country.frame,plot.title='Population Pyramid',plotly=F)
                                    '60-64','65-69','70-74','75-79','80-84','85-89',
                                    '90-94','95-99','100+')))
     
+    if (max(country.frame$Population) > 100) {
+      
+      percents <- country.frame$Population / sum(country.frame$Population) * 100
+      country.frame$Population <- percents
+      
+    }
+    
     plot_breaks <- seq(
       -as.integer(max(abs(country.frame$Population))/5)*5,
       as.integer(max(abs(country.frame$Population))/5)*5,by=5)
